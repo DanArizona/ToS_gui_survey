@@ -1,0 +1,103 @@
+2026-03-20 00:13:56 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 00:21:54 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 00:23:03 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 00:23:15 [INFO] Started dynamic window monitor
+2026-03-20 00:23:15 [INFO] Waiting for pose trigger (Ctrl+Shift+J)...
+2026-03-20 00:23:15 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:15 [INFO] Monitoring window: win_main
+2026-03-20 00:23:15 [INFO] └── win_main [730, 0] 1190x1080 <730, 0> [VISIBLE]
+2026-03-20 00:23:15 [INFO]     ├── btn_main_exit [1151, 9] 32x16 <1881, 9>
+2026-03-20 00:23:15 [INFO]     └── tab_scan [180, 49] 43x20 <910, 49>
+2026-03-20 00:23:15 [INFO]         ├── btn_scan [952, 216] 47x23 <1862, 265>
+2026-03-20 00:23:15 [INFO]         ├── btn_query_menu [973, 44] 34x18 <1883, 93>
+2026-03-20 00:23:15 [INFO]         │   └── pick_load_query [-153, 51] 184x23 <1730, 144>
+2026-03-20 00:23:15 [INFO]         │       ├── pick_personal_query [-242, 0] 240x23 <1488, 144>
+2026-03-20 00:23:15 [INFO]         │       │   └── pick_scan50_data [242, 96] 156x23 <1730, 240>
+2026-03-20 00:23:15 [INFO]         │       └── pick_public_query [-242, 24] 240x23 <1488, 168>
+2026-03-20 00:23:15 [INFO]         │           └── pick_pct_gainers [-239, 0] 237x23 <1249, 168>
+2026-03-20 00:23:15 [INFO]         ├── btn_action_menu [973, 21] 34x20 <1883, 70>
+2026-03-20 00:23:15 [INFO]         │   └── pick_export [-133, 170] 164x23 <1750, 240>
+2026-03-20 00:23:15 [INFO]         │       └── pick_to_file [-154, 0] 152x23 <1596, 240>
+2026-03-20 00:23:15 [INFO]         └── ocr_MyR_5 [32, 272] 56x141 <942, 321>
+2026-03-20 00:23:17 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:19 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:21 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:22 [INFO] ✅ Pose triggered. Bringing window to front and waiting 5 seconds...
+2026-03-20 00:23:23 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:25 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:27 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:27 [INFO] 📸 Capturing screenshot now.
+2026-03-20 00:23:28 [INFO] win_main at (730,0) size 1190x1080 level=0
+2026-03-20 00:23:28 [INFO] tab_scan at (910,49) size 43x20 level=1
+2026-03-20 00:23:28 [INFO] ocr_MyR_5 at (942,321) size 56x141 level=2 [SELECTED]
+2026-03-20 00:23:29 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:31 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:33 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:35 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:37 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:39 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:41 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:43 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:45 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:47 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:49 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:51 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:53 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:55 [WARNING] dynamic_window_monitor
+2026-03-20 00:23:57 [WARNING] dynamic_window_monitor
+2026-03-20 02:05:47 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 02:06:07 [INFO] Started dynamic window monitor
+2026-03-20 02:06:07 [INFO] Waiting for pose trigger (Ctrl+Shift+J)...
+2026-03-20 02:06:07 [WARNING] dynamic_window_monitor
+2026-03-20 02:06:09 [WARNING] dynamic_window_monitor
+2026-03-20 02:06:11 [WARNING] dynamic_window_monitor
+2026-03-20 02:06:13 [WARNING] dynamic_window_monitor
+2026-03-20 02:06:15 [WARNING] dynamic_window_monitor
+2026-03-20 02:06:17 [WARNING] dynamic_window_monitor
+2026-03-20 02:06:18 [ERROR] ❌ Cannot trigger pose: Window for widget 'btn_stock_hacker' is still not visible.
+2026-03-20 02:06:54 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 02:07:01 [INFO] Started dynamic window monitor
+2026-03-20 02:07:01 [INFO] Waiting for pose trigger (Ctrl+Shift+J)...
+2026-03-20 02:07:01 [WARNING] dynamic_window_monitor
+2026-03-20 02:07:03 [WARNING] dynamic_window_monitor
+2026-03-20 02:07:05 [WARNING] dynamic_window_monitor
+2026-03-20 02:07:07 [WARNING] dynamic_window_monitor
+2026-03-20 02:07:09 [WARNING] dynamic_window_monitor
+2026-03-20 02:07:10 [ERROR] ❌ Cannot trigger pose: Window for widget 'btn_stock_hacker' is still not visible.
+2026-03-20 02:09:35 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 02:09:42 [INFO] Started dynamic window monitor
+2026-03-20 02:09:42 [INFO] Waiting for pose trigger (Ctrl+Shift+J)...
+2026-03-20 02:09:42 [WARNING] dynamic_window_monitor
+2026-03-20 02:09:44 [WARNING] dynamic_window_monitor
+2026-03-20 02:09:46 [WARNING] dynamic_window_monitor
+2026-03-20 02:09:46 [ERROR] ❌ Cannot trigger pose: Window for widget 'btn_query_menu' is still not visible.
+2026-03-20 02:23:40 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 02:23:47 [INFO] Started dynamic window monitor
+2026-03-20 02:23:47 [INFO] Waiting for pose trigger (Ctrl+Shift+J)...
+2026-03-20 02:23:47 [WARNING] dynamic_window_monitor
+2026-03-20 02:23:49 [WARNING] dynamic_window_monitor
+2026-03-20 02:23:51 [WARNING] dynamic_window_monitor
+2026-03-20 02:23:53 [WARNING] dynamic_window_monitor
+2026-03-20 02:23:55 [ERROR] ❌ Cannot trigger pose: Window for widget 'btn_scan' is still not visible.
+2026-03-20 02:29:31 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 02:29:38 [INFO] Started dynamic window monitor
+2026-03-20 02:29:38 [INFO] Waiting for pose trigger (Ctrl+Shift+J)...
+2026-03-20 02:29:38 [WARNING] dynamic_window_monitor
+2026-03-20 02:29:40 [WARNING] dynamic_window_monitor
+2026-03-20 02:29:42 [WARNING] dynamic_window_monitor
+2026-03-20 02:29:44 [WARNING] dynamic_window_monitor
+2026-03-20 02:29:46 [WARNING] dynamic_window_monitor
+2026-03-20 02:29:48 [WARNING] dynamic_window_monitor
+2026-03-20 02:29:48 [ERROR] ❌ Cannot trigger pose: Window for widget 'btn_scan' is still not visible.
+2026-03-20 20:19:37 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
+2026-03-20 20:19:50 [INFO] Started dynamic window monitor
+2026-03-20 20:19:50 [INFO] Waiting for pose trigger (Ctrl+Shift+J)...
+2026-03-20 20:19:50 [WARNING] dynamic_window_monitor
+2026-03-20 20:19:52 [WARNING] dynamic_window_monitor
+2026-03-20 20:19:54 [WARNING] dynamic_window_monitor
+2026-03-20 20:19:56 [WARNING] dynamic_window_monitor
+2026-03-20 20:19:58 [WARNING] dynamic_window_monitor
+2026-03-20 20:20:00 [WARNING] dynamic_window_monitor
+2026-03-20 20:20:02 [WARNING] dynamic_window_monitor
+2026-03-20 20:20:04 [ERROR] ❌ Cannot trigger pose: Window for widget 'pick_scan50_data' is still not visible.
+2026-03-20 20:21:35 [INFO] MKTBOT_SCANS = C:\Users\DanLa\Documents\github\stockScans-Copy
