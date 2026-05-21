@@ -7,7 +7,8 @@ import psutil
 import pygetwindow as gw
 from typing import Optional
 import pandas as pd
-from models import WidgetStack
+# from models import WidgetStack
+from mb_tools.pseudo_widgets import WidgetStack
 
 import win32gui
 import win32con
@@ -47,37 +48,88 @@ def get_windows_dataframe() -> pd.DataFrame:
     return df.sort_values(by='Title').reset_index(drop=True)
 
 
-def bring_window_to_front(widget_name: str, widget_stacks: dict[str, WidgetStack], title_map: dict[str, str]):
+
+
+
+# def bring_window_to_front(widget_name: str, widget_stacks: dict[str, WidgetStack], title_map: dict[str, str]):
+#     if widget_name not in widget_stacks:
+#         return
+
+#     stack = widget_stacks[widget_name]
+#     while stack.parent:
+#         stack = stack.parent
+
+#     search_title = title_map.get(stack.root().name, stack.root().name)
+#     windows = gw.getWindowsWithTitle(search_title)
+#     if windows:
+#         win = windows[0]
+#         if win.isMinimized:
+#             win.restore()
+#         try:
+#             win.activate()
+#         except Exception as e:
+#             logging.error(f"Failed to activate window '{search_title}': {e}")
+def bring_window_to_front(
+    widget_name: str,
+    widget_stacks: dict[str, WidgetStack],
+    title_map: dict[str, str],
+) -> None:
     if widget_name not in widget_stacks:
         return
 
-    stack = widget_stacks[widget_name]
-    while stack.parent:
-        stack = stack.parent
+    root = widget_stacks[widget_name].root()
+    search_title = title_map.get(root.name, root.name)
 
-    search_title = title_map.get(stack.bbox.name, stack.bbox.name)
     windows = gw.getWindowsWithTitle(search_title)
+
     if windows:
         win = windows[0]
+
         if win.isMinimized:
             win.restore()
+
         try:
             win.activate()
         except Exception as e:
             logging.error(f"Failed to activate window '{search_title}': {e}")
 
 
-def is_window_visible(widget_name: str, widget_stacks: dict[str, WidgetStack], title_map: dict[str, str]) -> bool:
+
+
+
+# def is_window_visible(widget_name: str, widget_stacks: dict[str, WidgetStack], title_map: dict[str, str]) -> bool:
+#     if widget_name not in widget_stacks:
+#         return False
+
+#     stack = widget_stacks[widget_name]
+#     while stack.parent:
+#         stack = stack.parent
+
+#     # search_title = title_map.get(stack.bbox.name, stack.bbox.name)
+#     search_title = title_map.get(stack.root().name, stack.root().name)
+#     titles = [title.strip().lower() for title in gw.getAllTitles() if title.strip()]
+#     return any(search_title.lower() in t for t in titles)
+def is_window_visible(
+    widget_name: str,
+    widget_stacks: dict[str, WidgetStack],
+    title_map: dict[str, str],
+) -> bool:
     if widget_name not in widget_stacks:
         return False
 
-    stack = widget_stacks[widget_name]
-    while stack.parent:
-        stack = stack.parent
+    root = widget_stacks[widget_name].root()
+    search_title = title_map.get(root.name, root.name)
 
-    search_title = title_map.get(stack.bbox.name, stack.bbox.name)
-    titles = [title.strip().lower() for title in gw.getAllTitles() if title.strip()]
-    return any(search_title.lower() in t for t in titles)
+    titles = [
+        title.strip().lower()
+        for title in gw.getAllTitles()
+        if title.strip()
+    ]
+
+    return any(search_title.lower() in title for title in titles)
+
+
+
 
 
 def bring_window_to_top(window_title: str) -> bool:

@@ -5,7 +5,8 @@ import numpy as np
 import cv2
 # import logging
 from typing import Dict, List, Set
-from models import WidgetStack
+# from models import WidgetStack
+from mb_tools.pseudo_widgets import WidgetStack
 from utils import days_seconds_ytd
 
 
@@ -113,9 +114,18 @@ def draw_widget_bounds(
         if stack.ancestry()[0] != window_title:
             continue
 
-        x, y = stack.get_absolute_position()
-        w, h = stack.bbox.width, stack.bbox.height
-        name = stack.bbox.name
+
+
+        # x, y = stack.get_absolute_position()
+        # w, h = stack.bbox.width, stack.bbox.height
+        # name = stack.bbox.name
+
+        region = stack.absolute_region()
+        x, y = region.x_tl, region.y_tl
+        w, h = region.width, region.height
+        name = stack.name
+
+
 
         level = len(stack.ancestry()) - 1
         color = COLOR_PALETTE[level % len(COLOR_PALETTE)]
@@ -177,14 +187,28 @@ def draw_widget_bounds_filtered(
 
     levels_used: list[int] = []
 
+
+
     # Draw ancestors/non-selected first
+    # for stack in ordered_stacks:
+    #     name = stack.bbox.name
+    #     if name in selected_set:
+    #         continue
+
+    #     x, y = stack.get_absolute_position()
+    #     w, h = stack.bbox.width, stack.bbox.height
     for stack in ordered_stacks:
-        name = stack.bbox.name
+        name = stack.name
         if name in selected_set:
             continue
 
-        x, y = stack.get_absolute_position()
-        w, h = stack.bbox.width, stack.bbox.height
+
+
+        region = stack.absolute_region()
+        x, y = region.x_tl, region.y_tl
+        w, h = region.width, region.height
+
+
 
         level = len(stack.ancestry()) - 1
         levels_used.append(level)
@@ -210,9 +234,17 @@ def draw_widget_bounds_filtered(
         if name not in widget_stacks:
             continue
 
+
+
+        # stack = widget_stacks[name]
+        # x, y = stack.get_absolute_position()
+        # w, h = stack.bbox.width, stack.bbox.height
         stack = widget_stacks[name]
-        x, y = stack.get_absolute_position()
-        w, h = stack.bbox.width, stack.bbox.height
+        region = stack.absolute_region()
+        x, y = region.x_tl, region.y_tl
+        w, h = region.width, region.height
+
+
 
         level = len(stack.ancestry()) - 1
         levels_used.append(level)

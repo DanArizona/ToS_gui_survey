@@ -6,8 +6,8 @@ import time
 import pygetwindow as gw
 from typing import Dict
 from window_utils import is_window_visible
-from models import WidgetStack
-
+# from models import WidgetStack
+from mb_tools.pseudo_widgets import WidgetStack
 
 def is_mouse_left_down() -> bool:
     import win32api
@@ -17,8 +17,13 @@ def is_mouse_left_down() -> bool:
 def monitor_window_position(widget_stack: WidgetStack, logger, poll_interval: float = 0.5):    
     """Continuously track and log when a window is moved."""
 
-    search_title = widget_stack.window_title or widget_stack.bbox.name
-    previous_position = widget_stack.bbox.Xtl, widget_stack.bbox.Ytl
+    # search_title = widget_stack.window_title or widget_stack.bbox.name
+    # previous_position = widget_stack.bbox.Xtl, widget_stack.bbox.Ytl
+    search_title = widget_stack.name
+    previous_position = (
+        widget_stack.region.x_tl,
+        widget_stack.region.y_tl,
+    )
 
     while True:
         try:
@@ -32,7 +37,8 @@ def monitor_window_position(widget_stack: WidgetStack, logger, poll_interval: fl
 
             if new_position != previous_position and not is_mouse_left_down():
                 logger.info(f"Window moved: '{search_title}' {previous_position} → {new_position}")
-                widget_stack.bbox.Xtl, widget_stack.bbox.Ytl = new_position
+                # widget_stack.bbox.Xtl, widget_stack.bbox.Ytl = new_position
+                widget_stack.region.x_tl, widget_stack.region.y_tl = new_position
                 previous_position = new_position
 
                 widget_stack.print_tree(logger=logger)
@@ -60,7 +66,10 @@ def dynamic_window_monitor(widget_stacks: Dict[str, WidgetStack], logger, poll_i
                 if stack.parent is not None:
                     continue  # Only root-level stacks
 
-                search_title = stack.window_title or stack.bbox.name
+                # search_title = stack.window_title or stack.bbox.name
+                search_title = widget_stack.name
+
+
                 is_visible = any(search_title.lower() in t.lower() for t in current_titles)
 
                 if is_visible and name not in active_threads:
