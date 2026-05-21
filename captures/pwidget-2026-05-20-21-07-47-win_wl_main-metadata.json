@@ -1,0 +1,26 @@
+{
+  "capture_timestamp": "2026-05-20T21:07:47",
+  "selected_widgets": [
+    "win_wl_main"
+  ],
+  "primary_selected_widget": "win_wl_main",
+  "yaml_path": "layout_scanner3_v1p0.yaml",
+  "yaml_version": "scanner3_v1p0",
+  "raw_screenshot": "captures\\pwidget-2026-05-20-21-07-47-win_wl_main-raw.png",
+  "annotated_screenshot": "captures\\pwidget-2026-05-20-21-07-47-win_wl_main-annotated.png",
+  "drawn_widgets": [
+    {
+      "name": "win_wl_main",
+      "path": "win_wl_main",
+      "coord": "parent",
+      "x_tl": 730,
+      "y_tl": 0,
+      "width": 1190,
+      "height": 1080,
+      "x_center": 1325.0,
+      "y_center": 540.0,
+      "level": 0,
+      "selected": true
+    }
+  ]
+}

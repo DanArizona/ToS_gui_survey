@@ -41,29 +41,27 @@ from input_handlers import is_ctrl_shift_j_pressed
 import pygetwindow as gw
 
 def run_main(logger):
-    parser = argparse.ArgumentParser(description="Draw widget bounds for specified widget names.")
+    parser = argparse.ArgumentParser(
+        description="Draw widget bounds for specified widget names."
+    )
+
     parser.add_argument(
         "widgets",
         nargs="*",
-        help="List of widget names to draw (e.g. btn_action_menu pick_to_file)"
+        help="List of widget names to draw (e.g. btn_action_menu pick_to_file)",
     )
+
+    parser.add_argument(
+        "--no-raw-capture",
+        action="store_true",
+        help="Do not save the raw screenshot without drawn shapes.",
+    )
+
     args = parser.parse_args()
 
     cfg = WindowConfig()
     cfg.print_cfg()
 
-    # title_map = {
-    #     "win_main": cfg.WINDOW_TOS_MAIN,
-    #     "win_logon": cfg.WINDOW_TOS_LOGON,
-    #     "win_updater": cfg.WINDOW_TOS_UPDATE,
-    #     "win_saver": cfg.WINDOW_TOS_EXPORT,
-    #     "win_wl_main": cfg.WINDOW_TOS_WL_MAIN,
-    #     "win_wl_symbols": cfg.WINDOW_TOS_WL_SYMBOLS,
-    #     "win_wl_export": cfg.WINDOW_TOS_WL_EXPORT
-    # }
-
-
-    
     logger.info(f"WINDOW_TOS = {cfg.WINDOW_TOS!r}")
     logger.info(f"WINDOW_TOS_MAIN = {cfg.WINDOW_TOS_MAIN!r}")
     logger.info(f"WINDOW_TOS_LOGON = {cfg.WINDOW_TOS_LOGON!r}")
@@ -141,7 +139,31 @@ def run_main(logger):
     bring_window_to_front(selected_widget, widget_stacks, cfg.title_map)
     logger.info("📸 Capturing screenshot now.")
     # Draw filtered bounds
-    draw_widget_bounds_filtered(widget_stacks, [selected_widget], logger)
+    # draw_widget_bounds_filtered(widget_stacks, [selected_widget], logger)
+
+    # capture_paths = draw_widget_bounds_filtered(
+    #     widget_stacks,
+    #     [selected_widget],
+    #     logger,
+    #     capture_dir="captures",
+    #     yaml_path=cfg.WIDGET_STACK_YAML,
+    #     save_raw=True,
+    #     show_image=True,
+    # )
+
+    capture_paths = draw_widget_bounds_filtered(
+        widget_stacks,
+        [selected_widget],
+        logger,
+        capture_dir="captures",
+        yaml_path=cfg.WIDGET_STACK_YAML,
+        save_raw=not args.no_raw_capture,
+        show_image=True,
+    )
+
+    logger.info("Capture files:")
+    for label, path in capture_paths.items():
+        logger.info("  %s: %s", label, path)
 
 
 if __name__ == "__main__":

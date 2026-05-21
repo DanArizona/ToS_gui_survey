@@ -10,6 +10,8 @@ load_dotenv()
 @dataclass
 class WindowConfig:
     WINDOW_TOS: str = os.getenv("WINDOW_TOS", "thinkorswim")
+
+    # window names
     WINDOW_TOS_MAIN: str = os.getenv("WINDOW_TOS_MAIN", "Main@thinkorswim")
     WINDOW_TOS_UPDATE: str = os.getenv("WINDOW_TOS_UPDATE", "thinkorswim updater")
     WINDOW_TOS_LOGON: str = os.getenv("WINDOW_TOS_LOGON", "Logon to thinkorswim")
