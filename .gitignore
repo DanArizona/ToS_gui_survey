@@ -169,4 +169,5 @@ defaults.json
 *.sqlite
 *.sqlite3
 .env
-
+*dbg*
+*captures*
