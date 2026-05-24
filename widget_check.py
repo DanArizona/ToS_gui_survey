@@ -28,19 +28,26 @@ import threading
 import logging
 from typing import Optional
 
-from config import WindowConfig
+# from config import WindowConfig
+from mb_tools.config import load_mb_config
+from window_config import WindowConfig
+
 from layout import load_widget_layout
 from dialog import run_widget_selection_dialog, WidgetSelectionDialog
 from window_utils import (
     is_window_visible,
-    bring_window_to_front
+    bring_window_to_front,
+    update_root_window_positions,
 )
 from monitoring import dynamic_window_monitor
 from drawing import draw_widget_bounds_filtered
 from input_handlers import is_ctrl_shift_j_pressed
 import pygetwindow as gw
 
+
 def run_main(logger):
+    print("\n\n\n")
+
     parser = argparse.ArgumentParser(
         description="Draw widget bounds for specified widget names."
     )
@@ -57,33 +64,50 @@ def run_main(logger):
         help="Do not save the raw screenshot without drawn shapes.",
     )
 
+    parser.add_argument(
+        "--env-file",
+        default=".env",
+        help="Path to project .env file. Default: .env",
+    )
+
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Show detailed MB_* configuration loading messages.",
+    )
+
     args = parser.parse_args()
 
-    cfg = WindowConfig()
-    cfg.print_cfg()
+    mb_cfg = load_mb_config(
+        dotenv_path=args.env_file,
+        verbose=args.verbose,
+    )
 
-    logger.info(f"WINDOW_TOS = {cfg.WINDOW_TOS!r}")
-    logger.info(f"WINDOW_TOS_MAIN = {cfg.WINDOW_TOS_MAIN!r}")
-    logger.info(f"WINDOW_TOS_LOGON = {cfg.WINDOW_TOS_LOGON!r}")
-    logger.info(f"WINDOW_TOS_UPDATE = {cfg.WINDOW_TOS_UPDATE!r}")
-    logger.info(f"WINDOW_TOS_EXPORT = {cfg.WINDOW_TOS_EXPORT!r}")
-    logger.info(f"WINDOW_TOS_WL_MAIN = {cfg.WINDOW_TOS_WL_MAIN!r}")
-    logger.info(f"WINDOW_TOS_WL_EXPORT = {cfg.WINDOW_TOS_WL_EXPORT!r}")
-    logger.info(f"WINDOW_TOS_WL_SYMBOLS = {cfg.WINDOW_TOS_WL_SYMBOLS!r}")
+    cfg = WindowConfig.from_mb_config(mb_cfg)
+    cfg.print_cfg()
+    cfg.log_cfg(logger)
+
+    scans_path = mb_cfg.get_path("MB_SCANS", must_exist=False)
+    logger.info("MB_SCANS = %s", scans_path)
+
+    logger.info("WINDOW_TOS = %r", cfg.WINDOW_TOS)
+    logger.info("WINDOW_TOS_MAIN = %r", cfg.WINDOW_TOS_MAIN)
+    logger.info("WINDOW_TOS_LOGON = %r", cfg.WINDOW_TOS_LOGON)
+    logger.info("WINDOW_TOS_UPDATE = %r", cfg.WINDOW_TOS_UPDATE)
+    logger.info("WINDOW_TOS_EXPORT = %r", cfg.WINDOW_TOS_EXPORT)
+    logger.info("WINDOW_TOS_WL_MAIN = %r", cfg.WINDOW_TOS_WL_MAIN)
+    logger.info("WINDOW_TOS_WL_EXPORT = %r", cfg.WINDOW_TOS_WL_EXPORT)
+    logger.info("WINDOW_TOS_WL_SYMBOLS = %r", cfg.WINDOW_TOS_WL_SYMBOLS)
 
     all_titles = [t.strip() for t in gw.getAllTitles() if t.strip()]
     logger.info("Open windows containing 'think' or 'swim':")
     for t in all_titles:
         tl = t.lower()
         if "think" in tl or "swim" in tl:
-            logger.info(f"  {t!r}")
+            logger.info("  %r", t)
 
-
-
-    # print("\nMKTBOT_SCANS =", cfg.MKTBOT_SCANS, "\n")
-    logger.info(f"MKTBOT_SCANS = {cfg.MKTBOT_SCANS}")
-
-    widget_stacks = load_widget_layout(cfg.WIDGET_STACK_YAML, cfg.title_map)
+    widget_stacks = load_widget_layout(str(cfg.WIDGET_STACK_YAML), cfg.title_map)
+    update_root_window_positions(widget_stacks, cfg.title_map, logger)
 
     # Determine which widget(s) to work with
     if not args.widgets:
@@ -98,6 +122,9 @@ def run_main(logger):
             print(f"Invalid widget name: {selected_widget}")
             # sys.exit(1)
             return
+
+    logger.info(f">>> selected_widget: '{selected_widget}'")
+    print(18*"-" + "\n" + f"| selected_widget: '{selected_widget}'" + "\n" + 18*"-")
 
     # Attempt to bring window to front
     if is_window_visible(selected_widget, widget_stacks, cfg.title_map):
@@ -139,18 +166,6 @@ def run_main(logger):
     bring_window_to_front(selected_widget, widget_stacks, cfg.title_map)
     logger.info("📸 Capturing screenshot now.")
     # Draw filtered bounds
-    # draw_widget_bounds_filtered(widget_stacks, [selected_widget], logger)
-
-    # capture_paths = draw_widget_bounds_filtered(
-    #     widget_stacks,
-    #     [selected_widget],
-    #     logger,
-    #     capture_dir="captures",
-    #     yaml_path=cfg.WIDGET_STACK_YAML,
-    #     save_raw=True,
-    #     show_image=True,
-    # )
-
     capture_paths = draw_widget_bounds_filtered(
         widget_stacks,
         [selected_widget],

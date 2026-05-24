@@ -262,8 +262,8 @@ win_wl_main:
           coord: popup
           children: {}
 win_wl_symbols:
-  width: 944
-  height: 531
+  width: 502
+  height: 247
   Xtl: 0
   Ytl: 0
   ptxt: ""
@@ -310,8 +310,8 @@ win_wl_symbols:
       coord: parent
       children: {}
 win_wl_export:
-  width: 944
-  height: 531
+  width: 960     
+  height: 509
   Xtl: 0
   Ytl: 0
   ptxt: ""
