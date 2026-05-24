@@ -4,6 +4,7 @@ win_updater:
   Xtl: 772
   Ytl: 199
   ptxt: ""
+  coord: parent
   children: {}
 win_logon:
   width: 377
@@ -153,11 +154,12 @@ win_main:
                   coord: popup
                   children: {}
 win_export:
-  width: 944
-  height: 531
+  width: 960
+  height: 509
   Xtl: 0
   Ytl: 0
   ptxt: ""
+  coord: parent
   children:
     ledit_dir:
       width: 795
@@ -192,10 +194,10 @@ win_export:
       coord: parent
       children: {}
 win_wl_main:
-  width: 1190
-  height: 1080
-  Xtl: 730
-  Ytl: 0
+  width: 435
+  height: 886
+  Xtl: 306
+  Ytl: 194
   ptxt: ""
   children:
     btn_wl_burger:
@@ -310,7 +312,7 @@ win_wl_symbols:
       coord: parent
       children: {}
 win_wl_export:
-  width: 960     
+  width: 960
   height: 509
   Xtl: 0
   Ytl: 0
