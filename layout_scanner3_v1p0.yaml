@@ -272,42 +272,42 @@ win_wl_symbols:
   coord: parent
   children:
     rbutt_si_paste:
-      width: 795
-      height: 16
-      Xtl: 136
-      Ytl: 389
+      width: 175
+      height: 14
+      Xtl: 19
+      Ytl: 60
       ptxt: ""
       coord: parent
       children: {}
     rbutt_si_replace:
-      width: 795
-      height: 16
-      Xtl: 136
-      Ytl: 389
+      width: 150
+      height: 14
+      Xtl: 19
+      Ytl: 145
       ptxt: ""
       coord: parent
       children: {}
     rbutt_si_add:
-      width: 795
-      height: 16
-      Xtl: 136
-      Ytl: 389
+      width: 150
+      height: 14
+      Xtl: 19
+      Ytl: 161
       ptxt: ""
       coord: parent
       children: {}
     btn_si_save_file:
-      width: 90
-      height: 23
-      Xtl: 743
-      Ytl: 490
+      width: 39
+      height: 25
+      Xtl: 378
+      Ytl: 211
       coord: parent
       ptxt: "Save"
       children: {}
     btn_si_cancel:
-      width: 84
-      height: 23
-      Xtl: 848
-      Ytl: 490
+      width: 60
+      height: 25
+      Xtl: 426
+      Ytl: 211
       ptxt: "Cancel"
       coord: parent
       children: {}
