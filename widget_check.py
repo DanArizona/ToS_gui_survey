@@ -45,7 +45,8 @@ from input_handlers import is_ctrl_shift_j_pressed
 import pygetwindow as gw
 
 
-def run_main(logger):
+# def run_main(logger):
+def run_main(logger: logging.Logger) -> None:
     print("\n\n\n")
 
     parser = argparse.ArgumentParser(
@@ -123,7 +124,8 @@ def run_main(logger):
             # sys.exit(1)
             return
 
-    logger.info(f">>> selected_widget: '{selected_widget}'")
+    # logger.info(f">>> selected_widget: '{selected_widget}'")
+    logger.info(">>> selected_widget: %r", selected_widget)
     print(18*"-" + "\n" + f"| selected_widget: '{selected_widget}'" + "\n" + 18*"-")
 
     # Attempt to bring window to front
@@ -155,12 +157,16 @@ def run_main(logger):
 
     logger.info("✅ Pose triggered. Bringing window to front and waiting 5 seconds...")
     bring_window_to_front(selected_widget, widget_stacks, cfg.title_map)
+    update_root_window_positions(widget_stacks, cfg.title_map, logger)
 
     # Optional: Provide visual feedback to the user
     print("✅ Pose triggered. Window brought to front.")
     print("⏳ Waiting 5 seconds before screenshot...")
 
     time.sleep(5)
+
+    bring_window_to_front(selected_widget, widget_stacks, cfg.title_map)
+    update_root_window_positions(widget_stacks, cfg.title_map, logger)
 
     # Final window positioning before capture
     bring_window_to_front(selected_widget, widget_stacks, cfg.title_map)

@@ -162,31 +162,31 @@ win_export:
   coord: parent
   children:
     ledit_dir:
-      width: 795
-      height: 16
-      Xtl: 136
-      Ytl: 389
+      width: 515
+      height: 32
+      Xtl: 146
+      Ytl: 42
       ptxt: ""
       coord: parent
       children: {}
     ledit_fname:
       width: 795
-      height: 16
-      Xtl: 136
-      Ytl: 389
+      height: 20
+      Xtl: 134
+      Ytl: 356
       ptxt: ""
       coord: parent
       children: {}
     btn_save_file:
-      width: 90
+      width: 85
       height: 23
-      Xtl: 743
-      Ytl: 490
+      Xtl: 748
+      Ytl: 459
       ptxt: "Save"
       coord: parent
       children: {}
     btn_cancel:
-      width: 84
+      width: 85
       height: 23
       Xtl: 848
       Ytl: 490
@@ -201,65 +201,65 @@ win_wl_main:
   ptxt: ""
   children:
     btn_wl_burger:
-      width: 43
+      width: 35
       height: 20
-      Xtl: 180
-      Ytl: 49
+      Xtl: 392
+      Ytl: 31
       ptxt: ""
       children:
         pick_wl_export:
-          width: 75
-          height: 15
-          Xtl: -142
-          Ytl: 24
+          width: 164
+          height: 24
+          Xtl: -64
+          Ytl: 154
           ptxt: ""
           coord: parent
           children: {}
     btn_wl_myr_sort:
-      width: 34
-      height: 18
-      Xtl: 973
-      Ytl: 45
+      width: 78
+      height: 16
+      Xtl: 77
+      Ytl: 52
       ptxt: ""
       coord: parent
       children: {}
     btn_wl_action:
       width: 34
       height: 18
-      Xtl: 973
-      Ytl: 45
+      Xtl: 83
+      Ytl: 32
       ptxt: ""
       coord: parent
       children:
         pick_wl_personal:
-          width: 240
+          width: 206
           height: 23
-          Xtl: -242
-          Ytl: 0
+          Xtl: -47
+          Ytl: 130
           ptxt: "Personal"
           coord: popup
           children:
             pick_wl_default:
-              width: 156
+              width: 167
               height: 23
-              Xtl: 242
-              Ytl: 96
+              Xtl: 208
+              Ytl: 24
               ptxt: ""
               coord: popup
               children: {}
             pick_wl_scan50_data:
-              width: 156
+              width: 167
               height: 23
-              Xtl: 242
-              Ytl: 96
+              Xtl: 208
+              Ytl: 168
               ptxt: ""
               coord: popup
               children: {}
         pick_import:
-          width: 240
+          width: 206
           height: 23
-          Xtl: -242
-          Ytl: 24
+          Xtl: -47
+          Ytl: 401
           ptxt: "Public"
           coord: popup
           children: {}

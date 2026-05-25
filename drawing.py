@@ -313,22 +313,22 @@ def draw_widget_bounds_filtered(
 
         color = COLOR_PALETTE[level % len(COLOR_PALETTE)]
 
-        cv2.rectangle(annotated_img, (x, y), (x + w, y + h), color, 2)
+        cv2.rectangle(annotated_img, (x, y), (x + w, y + h), color, 1)
 
         cv2.putText(
             annotated_img,
             name,
-            (x, y - 8),
+            (x, y - 5),
             cv2.FONT_HERSHEY_SIMPLEX,
-            0.7,
+            0.5,
             color,
-            2,
+            1,
         )
 
         cv2.circle(
             annotated_img,
             (x + w // 2, y + h // 2),
-            5,
+            4,
             (0, 0, 255),
             -1,
         )
