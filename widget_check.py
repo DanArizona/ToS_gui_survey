@@ -118,7 +118,7 @@ def load_and_refresh_widget_stacks(
     logger: logging.Logger,
 ):
     widget_stacks = load_widget_layout(
-        str(cfg.WIDGET_STACK_YAML),
+        cfg.WIDGET_STACK_YAML,
         cfg.title_map,
     )
 
