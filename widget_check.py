@@ -415,7 +415,7 @@ def run_main(logger: logging.Logger) -> None:
     if selected_widget is None:
         return
 
-    logger.info(">>> selected_widget: %r", selected_widget)
+    logger.info("--->> selected_widget: %r", selected_widget)
 
     prepare_window_for_widget(selected_widget, widget_stacks, cfg, logger)
 
