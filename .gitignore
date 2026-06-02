@@ -171,3 +171,4 @@ defaults.json
 .env
 *dbg*
 *captures*
+tmp/*
