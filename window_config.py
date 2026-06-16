@@ -121,7 +121,7 @@ class WindowConfig:
     WINDOW_TOS_EXPORT: str
     WINDOW_TOS_WL_MAIN: str
     WINDOW_TOS_WL_EXPORT: str
-    WINDOW_TOS_WL_SYMBOLS: str
+    WINDOW_TOS_WL_SYMBOLS_IMPORT: str
     WIDGET_STACK_YAML: Path
 
     @property
@@ -136,7 +136,7 @@ class WindowConfig:
             "win_export": self.WINDOW_TOS_EXPORT,
             "win_wl_main": self.WINDOW_TOS_WL_MAIN,
             "win_wl_export": self.WINDOW_TOS_WL_EXPORT,
-            "win_wl_symbols": self.WINDOW_TOS_WL_SYMBOLS,
+            "win_wl_symbols_import": self.WINDOW_TOS_WL_SYMBOLS_IMPORT,
         }
 
     @classmethod
@@ -186,7 +186,7 @@ class WindowConfig:
             WINDOW_TOS_EXPORT=window_values["MB_WINDOW_TOS_EXPORT"],
             WINDOW_TOS_WL_MAIN=window_values["MB_WINDOW_TOS_WL_MAIN"],
             WINDOW_TOS_WL_EXPORT=window_values["MB_WINDOW_TOS_WL_EXPORT"],
-            WINDOW_TOS_WL_SYMBOLS=window_values["MB_WINDOW_TOS_WL_SYMBOLS"],
+            WINDOW_TOS_WL_SYMBOLS_IMPORT=window_values["MB_WINDOW_TOS_WL_SYMBOLS_IMPORT"],
             WIDGET_STACK_YAML=yaml_path,
         )
 
@@ -203,7 +203,7 @@ class WindowConfig:
         print(f"  WINDOW_TOS_EXPORT      = {self.WINDOW_TOS_EXPORT!r}")
         print(f"  WINDOW_TOS_WL_MAIN     = {self.WINDOW_TOS_WL_MAIN!r}")
         print(f"  WINDOW_TOS_WL_EXPORT   = {self.WINDOW_TOS_WL_EXPORT!r}")
-        print(f"  WINDOW_TOS_WL_SYMBOLS  = {self.WINDOW_TOS_WL_SYMBOLS!r}")
+        print(f"  WINDOW_TOS_WL_SYMBOLS_IMPORT  = {self.WINDOW_TOS_WL_SYMBOLS_IMPORT!r}")
 
     def log_cfg(self, logger) -> None:
         """
@@ -218,5 +218,5 @@ class WindowConfig:
         logger.info("  WINDOW_TOS_EXPORT      = %r", self.WINDOW_TOS_EXPORT)
         logger.info("  WINDOW_TOS_WL_MAIN     = %r", self.WINDOW_TOS_WL_MAIN)
         logger.info("  WINDOW_TOS_WL_EXPORT   = %r", self.WINDOW_TOS_WL_EXPORT)
-        logger.info("  WINDOW_TOS_WL_SYMBOLS  = %r", self.WINDOW_TOS_WL_SYMBOLS)
+        logger.info("  WINDOW_TOS_WL_SYMBOLS_IMPORT  = %r", self.WINDOW_TOS_WL_SYMBOLS_IMPORT)
     

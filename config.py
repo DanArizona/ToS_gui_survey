@@ -18,7 +18,7 @@ class WindowConfig:
     WINDOW_TOS_EXPORT: str = os.getenv("WINDOW_TOS_EXPORT", "Watchlist Scanner")
     WINDOW_TOS_WL_MAIN: str = os.getenv("WINDOW_TOS_WL_MAIN", "Watchlist Main@thinkorswim")
     WINDOW_TOS_WL_EXPORT: str = os.getenv("WINDOW_TOS_WL_EXPORT", "Watchlist 'Default'")
-    WINDOW_TOS_WL_SYMBOLS: str = os.getenv("WINDOW_TOS_WL_SYMBOLS", "Symbols import")
+    WINDOW_TOS_WL_SYMBOLS_IMPORT: str = os.getenv("WINDOW_TOS_WL_SYMBOLS", "Symbols import")
     
     WINDOW_ALL_MAX_DIMS_ERR: int = int(os.getenv("WINDOW_ALL_MAX_DIMS_ERR", 4))
     WINDOW_MAIN_REF_WIDTH: int = int(os.getenv("WINDOW_MAIN_REF_WIDTH", 1190))
@@ -43,7 +43,7 @@ class WindowConfig:
         "win_updater": WINDOW_TOS_UPDATE,
         "win_export": WINDOW_TOS_EXPORT,
         "win_wl_main": WINDOW_TOS_WL_MAIN,
-        "win_wl_symbols": WINDOW_TOS_WL_SYMBOLS,
+        "win_wl_symbols_import": WINDOW_TOS_WL_SYMBOLS_IMPORT,
         "win_wl_export": WINDOW_TOS_WL_EXPORT,
     }
 
@@ -56,7 +56,7 @@ class WindowConfig:
         print("WINDOW_TOS_EXPORT:       " + self.WINDOW_TOS_EXPORT )
         print("WINDOW_TOS_WL_MAIN:      " + self.WINDOW_TOS_WL_MAIN )
         print("WINDOW_TOS_WL_EXPORT:    " + self.WINDOW_TOS_WL_EXPORT )
-        print("WINDOW_TOS_WL_SYMBOLS:   " + self.WINDOW_TOS_WL_SYMBOLS )
+        print("WINDOW_TOS_WL_SYMBOLS_IMPORT:   " + self.WINDOW_TOS_WL_SYMBOLS_IMPORT )
         print("WINDOW_ALL_MAX_DIMS_ERR: " + repr(self.WINDOW_ALL_MAX_DIMS_ERR ))
         print("WINDOW_MAIN_REF_WIDTH:   " + repr(self.WINDOW_MAIN_REF_WIDTH ))
         print("WINDOW_MAIN_REF_HEIGHT:  " + repr(self.WINDOW_MAIN_REF_HEIGHT ))
