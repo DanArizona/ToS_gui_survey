@@ -29,7 +29,7 @@ REQUIRED_WINDOW_KEYS = [
     "MB_WINDOW_TOS_EXPORT",
     "MB_WINDOW_TOS_WL_MAIN",
     "MB_WINDOW_TOS_WL_EXPORT",
-    "MB_WINDOW_TOS_WL_SYMBOLS_IMPORT",
+    "MB_WINDOW_TOS_WL_SYMBOLS",
 ]
 
 
@@ -136,7 +136,7 @@ class WindowConfig:
             "win_export": self.WINDOW_TOS_EXPORT,
             "win_wl_main": self.WINDOW_TOS_WL_MAIN,
             "win_wl_export": self.WINDOW_TOS_WL_EXPORT,
-            "win_wl_symbols": self.WINDOW_TOS_WL_SYMBOLS,
+            "win_wl_symbols_import": self.WINDOW_TOS_WL_SYMBOLS,
         }
 
     @classmethod
