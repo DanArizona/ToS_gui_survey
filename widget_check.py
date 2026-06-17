@@ -28,8 +28,6 @@ import threading
 import logging
 # from typing import Optional
 
-# from config import WindowConfig
-# from mb_tools.config import load_mb_config
 from mb_tools.config import MBConfig, load_mb_config
 from window_config import WindowConfig
 
@@ -118,7 +116,7 @@ def load_and_refresh_widget_stacks(
     logger: logging.Logger,
 ):
     widget_stacks = load_widget_layout(
-        cfg.WIDGET_STACK_YAML,
+        cfg.pwidget_yaml,
         cfg.title_map,
     )
 
@@ -244,7 +242,7 @@ def capture_selected_widget(
         [selected_widget],
         logger,
         capture_dir="captures",
-        yaml_path=str(cfg.WIDGET_STACK_YAML),
+        yaml_path=str(cfg.pwidget_yaml),
         save_raw=not args.no_raw_capture,
         show_image=True,
     )
